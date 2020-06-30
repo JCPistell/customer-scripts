@@ -13,7 +13,7 @@ METAMEM="800m"
 JMXARGS="-Dcom.sun.akuma.jvmarg.com.sun.management.jmxremote -Dcom.sun.akuma.jvmarg.com.sun.management.jmxremote.port=9910 -Dcom.sun.akuma.jvmarg.com.sun.management.jmxremote.ssl=false -Dcom.sun.akuma.jvmarg.com.sun.management.jmxremote.local.only=false -Dcom.sun.akuma.jvmarg.com.sun.management.jmxremote.authenticate=true -Dcom.sun.akuma.jvmarg.com.sun.management.jmxremote.access.file=${HOME}/.lookerjmx/jmxremote.access -Dcom.sun.akuma.jvmarg.com.sun.management.jmxremote.password.file=${HOME}/.lookerjmx/jmxremote.password"
 
 # to set up JMX monitoring, add JMXARGS to JAVAARGS
-JAVAARGS=""
+JAVAARGS="${JMXARGS}"
 LOOKERARGS=""
 
 # check for a lookerstart.cfg file to set JAVAARGS and LOOKERARGS
