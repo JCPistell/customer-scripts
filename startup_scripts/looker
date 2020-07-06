@@ -27,9 +27,9 @@ PROTOCOL=""
 echo "${LOOKERARGS}" | grep -q "\-\-no\-ssl"
 if [ $? -eq 0 ] 
 then
-	PROTOCOL='http'
+  PROTOCOL='http'
 else
-	PROTOCOL='https'
+  PROTOCOL='https'
 fi
 LOOKERPORT=${LOOKERPORT:-"9999"}
 
@@ -51,11 +51,11 @@ start() {
 
     fixcrypt
     java \
-  -XX:+UseG1GC -XX:MaxGCPauseMillis=2000 -XX:MaxMetaspaceSize=$METAMEM \
-  -Xms$JAVAMEM -Xmx$JAVAMEM \
-  -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps \
-  -Xloggc:/tmp/gc.log  ${JAVAARGS} \
-  -jar looker.jar start ${LOOKERARGS}
+    -XX:+UseG1GC -XX:MaxGCPauseMillis=2000 -XX:MaxMetaspaceSize=$METAMEM \
+    -Xms$JAVAMEM -Xmx$JAVAMEM \
+    -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps \
+    -Xloggc:/tmp/gc.log  ${JAVAARGS} \
+    -jar looker.jar start ${LOOKERARGS}
 
     if [ -x ./tunnel ]; then
        ./tunnel start
@@ -117,16 +117,16 @@ fixcrypt() {
 case "$1" in
   start)
     start
-	;;
+  ;;
   stop)
     stop
-	;;
+  ;;
   restart)
-	echo "Restarting Looker Web Application" "looker"
+  echo "Restarting Looker Web Application" "looker"
         stop
         sleep 3
         start
-	;;
+  ;;
   status)
         curl -ks ${PROTOCOL}://127.0.0.1:${LOOKERPORT}/alive > /dev/null 2>&1
         if [ $? -eq 7 ]; then
