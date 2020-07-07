@@ -1,3 +1,7 @@
 ---
+hostPort: localhost:9910
+username: monitorRole
+password: [PASSWORD]
+
 rules:
   - pattern: ".*"
