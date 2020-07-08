@@ -1,0 +1,13 @@
+[Unit]
+Description=Looker Prometheus Monitoring
+After=network.target
+
+[Service]
+ExecStart=/home/looker/looker/prom-jmx
+Type=simple
+User=looker
+WorkingDirectory=/home/looker/looker
+TimeoutStartSec=500
+
+[Install]
+WantedBy=default.target

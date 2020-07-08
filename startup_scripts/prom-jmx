@@ -1,0 +1,3 @@
+#!/bin/sh
+
+java -jar jmx_prometheus_httpserver.jar 9810 looker_jmx.yml
